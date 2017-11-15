@@ -55,7 +55,7 @@ if(nom==null){
             <input type="submit" name="destroy" value="Logout">            
         </form>
     </p>
-    <form method="post" action="Iniciar">
+    <form method="post" action="Iniciar.jsp">
         <input type="submit" name="Start" value="Iniciar">
         
     </form>    

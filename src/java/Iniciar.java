@@ -74,7 +74,7 @@ public class Iniciar extends HttpServlet {
                   k=k+1;
             
         }
-        int z=30;
+        int z=0;
         k=0;
         
           
@@ -106,15 +106,13 @@ public class Iniciar extends HttpServlet {
                 }
                 catch(Exception e)
                 {
-                    out.println("" + e);
-                }
             out.println("Tiempo restante" + z +" segundos" );
-            z=z-1;
+            
             }
-            response.sendRedirect("http://localhost:8080/Poyecto_poo/Menu.jsp");
+z=z+1;            //response.sendRedirect("http://localhost:8080/Poyecto_poo/Menu.jsp");
         }
     }
-
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
