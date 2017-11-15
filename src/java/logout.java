@@ -38,7 +38,7 @@ public class logout extends HttpServlet {
 request.getSession().removeAttribute("nom");
 request.getSession().removeAttribute("status");
             sesion.invalidate();
-           response.sendRedirect("http://localhost:8080/Poyecto_poo/index.html");
+           response.sendRedirect("http://localhost:8080/Proyecto-poo/index.html");
         }
     }
 

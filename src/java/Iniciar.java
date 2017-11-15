@@ -46,7 +46,7 @@ public class Iniciar extends HttpServlet {
         if(nom==null)
         {
             
-        response.sendRedirect("http://localhost:8080/Poyecto_poo/indexxx.html");
+        response.sendRedirect("http://localhost:8080/Proyecto-poo/index.html");
         }
         String Preguntas []=new String[10];
         int k=0;

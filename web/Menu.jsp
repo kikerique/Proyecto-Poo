@@ -44,7 +44,7 @@ function sale(){
                          <%
 String nom = (String)session.getAttribute("nom");
 if(nom==null){
-   response.sendRedirect("http://localhost:8080/Poyecto_poo/index.html"); 
+   response.sendRedirect("http://localhost:8080/Proyecto-poo/index.html"); 
 }
 %>
     <body>

@@ -62,13 +62,14 @@ public class Login extends HttpServlet {
          sesion.setAttribute("status", status);
          sesion.setAttribute("correo", correo);
          out.println(""+status);
-                  response.sendRedirect("http://localhost:8080/Poyecto_poo/Menu.jsp");
+                  response.sendRedirect("http://localhost:8080/Proyecto-Poo/Menu.jsp");
+                  
              }
              
              else{
                  
                  
-              response.sendRedirect("http://localhost:8080/Poyecto_poo/index.html");
+              response.sendRedirect("http://localhost:8080/Proyecto-poo/index.html");
                
              }
            
