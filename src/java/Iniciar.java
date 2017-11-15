@@ -74,7 +74,7 @@ public class Iniciar extends HttpServlet {
                   k=k+1;
             
         }
-        int z=3600;
+        int z=30;
         k=0;
         
           
@@ -100,11 +100,18 @@ public class Iniciar extends HttpServlet {
             out.println("</html>");
             while(z<3600)
             {
+                try
+                {
             Thread.sleep(1000);
+                }
+                catch(Exception e)
+                {
+                    out.println("" + e);
+                }
             out.println("Tiempo restante" + z +" segundos" );
             z=z-1;
             }
-            //response.sendRedirect("http://localhost:8080/Poyecto_poo/Menu.jsp");
+            response.sendRedirect("http://localhost:8080/Poyecto_poo/Menu.jsp");
         }
     }
 

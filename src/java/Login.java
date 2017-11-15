@@ -69,7 +69,7 @@ public class Login extends HttpServlet {
              else{
                  
                  
-              response.sendRedirect("http://localhost:8080/Proyecto-poo/index.html");
+              response.sendRedirect("http://localhost:8080/Proyecto-Poo/index.html");
                
              }
            
