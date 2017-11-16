@@ -13,7 +13,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%  int tiempo=1000; %>
+  
+</script>
+    <%  
+         HttpSession sesion = request.getSession();
+         String tiemposs=(String)sesion.getAttribute("tiempoS");
+    
+    int tiempoS=Integer.parseInt(tiemposs);
+    out.println("<input type='hidden' name='ayuda' id='ayuda' value='"+tiempoS+"'>");
+  
+    %>
+    
+   
     <script> 
    var cronometro;
 
@@ -32,25 +43,35 @@
    function carga()
 
     {
-
-        contador_s =0;
-
-        contador_m =0;
+       
+          var ayuda=document.getElementById("ayuda").value;
+         var s2=parseInt(ayuda);
+        contador_s =s2;
+                
 
         s = document.getElementById("segundos");
 
-        m = document.getElementById("minutos");
+       if(contador_s>=15)
+                {
+                    
+                document.f1.submit();
+            }
  
 
         cronometro = setInterval(
 
             function(){
-
+                 s.innerHTML = contador_s;
                 contador_s++;
+                  document.f1.T.value = contador_s;
+               
+                
 
-                document.f1.T.value = contador_s;
                 if(contador_s>=15)
+                {
+                    
                 document.f1.submit();
+            }
             }
 
             ,1000);
@@ -62,15 +83,21 @@
     </script>
     <head>
         <%
-             HttpSession sesion = request.getSession();
+             
          String nom="";
+         String Status="";
         nom = (String)sesion.getAttribute("nom");
-       
+        Status = (String)session.getAttribute("status");
        
         if(nom==null)
         {
             
-        response.sendRedirect("http://localhost:8080/Proyecto-poo/index.html");
+        response.sendRedirect("http://localhost:8080/Proyecto-Poo/Menu.jsp");
+        }
+           if(Status.equals("Si"))
+        {
+            
+        response.sendRedirect("http://localhost:8080/Proyecto-Poo/index.html");
         }
         String Preguntas []=new String[10];
         int k=0;
@@ -78,6 +105,7 @@
         int w=0;
         int p=0;
         int x=0;
+       
         p=(int) (Math.random()*6)+1;
         p=1;
         int entero[]=new int[10];
@@ -98,10 +126,10 @@
           z=0; 
          w=w+1;  
        }
-       out.print(" " + entero[0] );
-       out.print(" " + entero[1] );
-       out.print(" " + entero[2] );
-               
+    
+               sesion.setAttribute("p1", entero[0]);
+               sesion.setAttribute("p2", entero[1]);
+               sesion.setAttribute("p3", entero[2]);
                
         while(k<3){
             Connection connectionBD = null;
@@ -140,8 +168,12 @@
             </head>
             <body onload="carga()">
 
+ <p>
 
-            <form method='post' action='Resultado' name="f1" id="f1">
+     tiempo transcurrido segundos  <span id="segundos">0</span>
+
+    </p>
+            <form method='post' action='Intermedio.jsp' name="f1" id="f1">
                 <% while(k<3)
             {
             out.println("" + Preguntas[k]); 
@@ -156,8 +188,9 @@
                 
                 
             %>
-            <input type="text" name="T" id="T" >
-            <input type="submit" name="fin">
+            <input type="hidden" name="T" id="T" >
+            
+            <input type="submit" name="fin" value="pausar reaunudar">
             </form>
             <div id="number">   </div>
             </body>

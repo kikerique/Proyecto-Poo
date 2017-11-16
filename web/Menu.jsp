@@ -42,6 +42,8 @@ function sale(){
      
     </head>
                          <%
+                             HttpSession sesion = request.getSession();
+                             sesion.setAttribute("tiempoS", "0");
 String nom = (String)session.getAttribute("nom");
 if(nom==null){
    response.sendRedirect("http://localhost:8080/Proyecto-poo/index.html"); 

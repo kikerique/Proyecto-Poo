@@ -51,6 +51,7 @@ public class Login extends HttpServlet {
            
              if(result.next()){
                   out.println("Algo");
+                  
                   String id= result.getString("id");
                   String nom = result.getString("nombre");
                   String status=result.getString("estatus");
@@ -61,6 +62,9 @@ public class Login extends HttpServlet {
          sesion.setAttribute("nom", nom);
          sesion.setAttribute("status", status);
          sesion.setAttribute("correo", correo);
+         sesion.setAttribute("r0", "");
+     sesion.setAttribute("r1", "");
+     sesion.setAttribute("r2", "");
          out.println(""+status);
                   response.sendRedirect("http://localhost:8080/Proyecto-Poo/Menu.jsp");
                   
