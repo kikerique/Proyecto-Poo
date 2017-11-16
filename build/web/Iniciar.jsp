@@ -13,9 +13,52 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%  int tiempo=3000; %>
+    <%  int tiempo=1000; %>
     <script> 
-        setTimeout(function(){ alert("Hello"); }, 3000);
+   var cronometro;
+
+ 
+
+    function detenerse()
+
+    {
+
+        clearInterval(cronometro);
+
+    }
+
+ 
+
+   function carga()
+
+    {
+
+        contador_s =0;
+
+        contador_m =0;
+
+        s = document.getElementById("segundos");
+
+        m = document.getElementById("minutos");
+ 
+
+        cronometro = setInterval(
+
+            function(){
+
+                contador_s++;
+
+                document.f1.T.value = contador_s;
+                if(contador_s>=15)
+                document.f1.submit();
+            }
+
+            ,1000);
+
+ 
+
+    }
+
     </script>
     <head>
         <%
@@ -95,8 +138,10 @@
         
                        
             </head>
-            <body>
-            <form method='post' action='Resultado'>
+            <body onload="carga()">
+
+
+            <form method='post' action='Resultado' name="f1" id="f1">
                 <% while(k<3)
             {
             out.println("" + Preguntas[k]); 
@@ -107,7 +152,13 @@
             out.println("<br>");
             k=k+1;
             }
+            
+                
+                
             %>
+            <input type="text" name="T" id="T" >
+            <input type="submit" name="fin">
             </form>
+            <div id="number">   </div>
             </body>
             </html>
