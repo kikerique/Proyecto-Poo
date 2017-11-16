@@ -4,6 +4,8 @@
     Author     : Marcus
 --%>
 
+
+
 <%@page import="java.util.Random"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="java.sql.ResultSet"%>
@@ -18,6 +20,7 @@
     <%  
          HttpSession sesion = request.getSession();
          String tiemposs=(String)sesion.getAttribute("tiempoS");
+         
     
     int tiempoS=Integer.parseInt(tiemposs);
     out.println("<input type='hidden' name='ayuda' id='ayuda' value='"+tiempoS+"'>");
@@ -45,9 +48,17 @@
     {
        
           var ayuda=document.getElementById("ayuda").value;
+          
+          if(ayuda != null)
+          {
          var s2=parseInt(ayuda);
         contador_s =s2;
-                
+    }
+    else
+    {
+        contador_s=15;
+    }
+         
 
         s = document.getElementById("segundos");
 
@@ -98,18 +109,27 @@
         {
             
         response.sendRedirect("http://localhost:8080/Proyecto-Poo/index.html");
+        
         }
-        String Preguntas []=new String[10];
+            String Preguntas []=new String[10];
         int k=0;
         int z=0;
         int w=0;
         int p=0;
         int x=0;
+        String ayuda=(String)sesion.getAttribute("status2");
+        String np[]=new String[10];
+        
+        int entero[]=new int[10];
+         entero[0]=-1;entero[1]=-1; entero[2]=-1; entero[3]=-1; entero[4]=-1; entero[5]=-1; entero[6]=-1; entero[7]=-1;  entero[8]=-1;  entero[9]=-1;
+           if(ayuda.equals("listo"))
+           {
+       
        
         p=(int) (Math.random()*6)+1;
         p=1;
-        int entero[]=new int[10];
-       entero[0]=-1;entero[1]=-1; entero[2]=-1; entero[3]=-1; entero[4]=-1; entero[5]=-1; entero[6]=-1; entero[7]=-1;  entero[8]=-1;  entero[9]=-1;
+        
+      
        while(w<3)
        {
            while(z<3)
@@ -126,10 +146,23 @@
           z=0; 
          w=w+1;  
        }
-    
-               sesion.setAttribute("p1", entero[0]);
-               sesion.setAttribute("p2", entero[1]);
-               sesion.setAttribute("p3", entero[2]);
+        np[0]=Integer.toString(entero[0]);
+          np[1]=Integer.toString(entero[1]);
+            np[2]=Integer.toString(entero[2]);
+               sesion.setAttribute("p1",np[0]);
+               sesion.setAttribute("p2",np[1]);
+               sesion.setAttribute("p3",np[2]);
+               sesion.setAttribute("status2" , "empezado" );
+           }
+           else
+           {
+            
+               np[0]=(String)sesion.getAttribute("p1");
+               np[1]=(String)sesion.getAttribute("p2");
+               np[2]=(String)sesion.getAttribute("p3");
+             
+                          
+           }
                
         while(k<3){
             Connection connectionBD = null;
@@ -143,7 +176,8 @@
                  
             sql = connectionBD.createStatement();
          
-            ResultSet result = sql.executeQuery("select * from preguntas where idP='"+entero[x]+"' ;");
+            ResultSet result = sql.executeQuery("select * from preguntas where idP='"+np[x]+"' ;");
+            
             if(result.next()){
                           
                   Preguntas[k]= result.getString("pregunta");
@@ -152,7 +186,8 @@
             
                  x=x+1;
                   k=k+1;
-            
+               sql.close();
+     connectionBD.close();
         }
          z=0;
         k=0;
@@ -188,7 +223,7 @@
                 
                 
             %>
-            <input type="hidden" name="T" id="T" >
+            <input type="hidden" name="T" id="T" value="20" >
             
             <input type="submit" name="fin" value="pausar reaunudar">
             </form>

@@ -37,6 +37,13 @@ public class logout extends HttpServlet {
         HttpSession sesion = request.getSession();
 request.getSession().removeAttribute("nom");
 request.getSession().removeAttribute("status");
+request.getSession().removeAttribute("NombreEmpleado");
+request.getSession().removeAttribute("id");
+request.getSession().removeAttribute("correo");
+request.getSession().removeAttribute("r0");
+request.getSession().removeAttribute("r1");
+request.getSession().removeAttribute("r2");
+        
             sesion.invalidate();
            response.sendRedirect("http://localhost:8080/Proyecto-Poo/index.html");
         }

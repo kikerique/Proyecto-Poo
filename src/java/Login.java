@@ -56,23 +56,36 @@ public class Login extends HttpServlet {
                   String nom = result.getString("nombre");
                   String status=result.getString("estatus");
                   String correo=result.getString("correo");
-                out.println(""+status);
+                if(status.equals("No"))
+                {
+                     sesion.setAttribute("tiempoS", "0");
+                }
+                else{
+                     sesion.setAttribute("tiempoS", "16");
+                }
                   sesion.setAttribute("NombreEmpleado", nom);
          sesion.setAttribute("id", id);
          sesion.setAttribute("nom", nom);
          sesion.setAttribute("status", status);
          sesion.setAttribute("correo", correo);
+         sesion.setAttribute("status2" , "listo" );
          sesion.setAttribute("r0", "");
      sesion.setAttribute("r1", "");
      sesion.setAttribute("r2", "");
+      sesion.setAttribute("p1", "");
+     sesion.setAttribute("p2", "");
+     sesion.setAttribute("p3", "");
+     sql.close();
+     
+     connectionBD.close();
          out.println(""+status);
                   response.sendRedirect("http://localhost:8080/Proyecto-Poo/Menu.jsp");
                   
              }
              
              else{
-                 
-                 
+                    sql.close();
+     connectionBD.close();  
               response.sendRedirect("http://localhost:8080/Proyecto-Poo/index.html");
                
              }
