@@ -103,12 +103,12 @@
         if(nom==null)
         {
             
-        response.sendRedirect("http://localhost:8080/Proyecto-Poo/Menu.jsp");
+        response.sendRedirect("http://localhost:8080/Proyecto-Poo/index.html");
         }
            if(Status.equals("Si"))
         {
             
-        response.sendRedirect("http://localhost:8080/Proyecto-Poo/index.html");
+        response.sendRedirect("http://localhost:8080/Proyecto-Poo/Menu.jsp");
         
         }
             String Preguntas []=new String[10];

@@ -97,7 +97,28 @@ public class Fin extends HttpServlet {
      connectionBD.close();
                }
             out.print("Tu calificacion es  " + z + " de  3");
-            out.println("</body>");
+            
+                Connection connectionBD = null;
+        Statement sql = null;
+       
+         
+            Class.forName("com.mysql.jdbc.Driver");
+            
+            connectionBD = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_poo","root","root");
+              String idu=(String)sesion.getAttribute("id");
+            sql = connectionBD.createStatement();
+            String Status="Si";
+            int res = sql.executeUpdate("Update usuario set estatus='"+Status+"'  where id ='"+idu+"';");
+            sesion.setAttribute("status", "Si");
+                sql.close();
+    
+     connectionBD.close();
+     out.print("<form method='post' action='Menu.jsp'>");
+     out.print("<input type='submit' value='Menu'>");
+     out.print("</from>");
+     
+     
+      out.println("</body>");
             out.println("</html>");
         }
     }
