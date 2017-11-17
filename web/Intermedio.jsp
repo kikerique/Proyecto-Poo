@@ -4,6 +4,9 @@
     Author     : Marcus
 --%>
 
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,9 +21,10 @@
      sesion.setAttribute("r1", r0);
      sesion.setAttribute("r2", r1);
      sesion.setAttribute("r3", r2);
+    
      String tiempoS=request.getParameter("T");
      sesion.setAttribute("tiempoS", tiempoS);
-
+     
      String respuestas[] = new String[10];
      respuestas[0]=request.getParameter("p0");
      respuestas[1]=request.getParameter("p1");
