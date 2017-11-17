@@ -57,8 +57,9 @@ public class Fin extends HttpServlet {
             idp[0]=(String)sesion.getAttribute("p1");
                  idp[1]=(String)sesion.getAttribute("p2");
                idp[2]=(String)sesion.getAttribute("p3");
-         
-               Connection connectionBD = null;
+          
+               while(k<3) {
+                Connection connectionBD = null;
         Statement sql = null;
        
          
@@ -67,12 +68,9 @@ public class Fin extends HttpServlet {
             connectionBD = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_poo","root","root");
               
             sql = connectionBD.createStatement();
-               
-               while(k<3) {
-                
             ResultSet result = sql.executeQuery("select * from preguntas where idP ='"+idp[k]+"';");
        
-           //out.print("<script> alert('");
+           
              if(result.next())
              {
                 
@@ -94,16 +92,11 @@ public class Fin extends HttpServlet {
              {
                   out.println("valio");
              }
-               
-     k=k+1;
-     
-               }
-               sql.executeUpdate("UPDATE usuario set estatus='Si' where correo='"+String.valueOf(sesion.getAttribute("correo"))+"';");
                sql.close();
-               connectionBD.close();
+     k=k+1;
+     connectionBD.close();
+               }
             out.print("Tu calificacion es  " + z + " de  3");
-            out.print("<br/><br/><a href='http://localhost:8080/Proyecto-Poo/index.html'> <button>Ir al Login</button> </a>");
-            //response.sendRedirect("http://localhost:8080/Proyecto-Poo/index.html");
             out.println("</body>");
             out.println("</html>");
         }
