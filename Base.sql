@@ -50,7 +50,7 @@ DROP TABLE IF EXISTS `examenpre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `examenpre` (
-  `idP` int(11) NOT NULL,
+  `idP` varchar(1) NOT NULL,
   `idE` int(11) NOT NULL,
   KEY `idP` (`idP`),
   KEY `idE` (`idE`),
@@ -76,7 +76,7 @@ DROP TABLE IF EXISTS `preguntas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `preguntas` (
-  `idP` int(11) NOT NULL,
+  `idP` varchar(1) NOT NULL,
   `pregunta` varchar(60) DEFAULT NULL,
   `respuesta` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`idP`)
@@ -89,7 +89,7 @@ CREATE TABLE `preguntas` (
 
 LOCK TABLES `preguntas` WRITE;
 /*!40000 ALTER TABLE `preguntas` DISABLE KEYS */;
-INSERT INTO `preguntas` VALUES (1,'Hola que hace','Nada'),(2,'Como te llamas','Rafa'),(3,'tu edad','19'),(4,'Entiendes','No'),(5,'eres puto','que te importa'),(6,'ya no se que poner','ok');
+INSERT INTO `preguntas` VALUES ('1','Hola que hace','Nada'),('2','Como te llamas','Rafa'),('3','tu edad','19'),('4','Entiendes','No'),('5','eres puto','que te importa'),('6','ya no se que poner','ok');
 /*!40000 ALTER TABLE `preguntas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,4 +129,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-15 17:32:58
+-- Dump completed on 2017-11-16 18:29:04
