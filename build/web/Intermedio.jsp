@@ -15,9 +15,9 @@
      String r0=request.getParameter("p0");
      String r1=request.getParameter("p1");
      String r2=request.getParameter("p2");
-     sesion.setAttribute("r0", r0);
-     sesion.setAttribute("r1", r1);
-     sesion.setAttribute("r2", r2);
+     sesion.setAttribute("r1", r0);
+     sesion.setAttribute("r2", r1);
+     sesion.setAttribute("r3", r2);
      String tiempoS=request.getParameter("T");
      sesion.setAttribute("tiempoS", tiempoS);
 

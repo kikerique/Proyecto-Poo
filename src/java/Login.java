@@ -69,6 +69,7 @@ public class Login extends HttpServlet {
          sesion.setAttribute("status", status);
          sesion.setAttribute("correo", correo);
          sesion.setAttribute("status2" , "listo" );
+          sesion.setAttribute("r1", "");
          sesion.setAttribute("r1", "");
      sesion.setAttribute("r2", "");
      sesion.setAttribute("r3", "");

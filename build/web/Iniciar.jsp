@@ -132,7 +132,7 @@
        
        
         p=(int) (Math.random()*6)+1;
-        p=1;
+        
         
       
        while(w<3)
