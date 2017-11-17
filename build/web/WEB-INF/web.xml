@@ -16,6 +16,10 @@
         <servlet-name>Intermedio</servlet-name>
         <servlet-class>Intermedio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Fin</servlet-name>
+        <servlet-class>Fin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>Intermedio</servlet-name>
         <url-pattern>/Intermedio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Fin</servlet-name>
+        <url-pattern>/Fin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

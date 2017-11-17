@@ -117,6 +117,11 @@
         int w=0;
         int p=0;
         int x=0;
+        String respuestas[]=new String[10];
+        respuestas[0]=(String)sesion.getAttribute("r1");
+          respuestas[1]=(String)sesion.getAttribute("r2");
+            respuestas[2]=(String)sesion.getAttribute("r3");
+            
         String ayuda=(String)sesion.getAttribute("status2");
         String np[]=new String[10];
         
@@ -213,7 +218,7 @@
             {
             out.println("" + Preguntas[k]); 
             out.println("<br>");
-            out.println("<input type='text' name='p"+k+"'>");
+            out.println("<input type='text' name='p"+k+"' value='"+respuestas[k]+"'>");
             out.println("<br>");
             out.println("<br>");
             out.println("<br>");

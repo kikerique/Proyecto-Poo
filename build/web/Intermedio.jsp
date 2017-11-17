@@ -20,8 +20,16 @@
      sesion.setAttribute("r2", r2);
      String tiempoS=request.getParameter("T");
      sesion.setAttribute("tiempoS", tiempoS);
+
+     String respuestas[] = new String[10];
+     respuestas[0]=request.getParameter("p0");
+     respuestas[1]=request.getParameter("p1");
+     respuestas[2]=request.getParameter("p2");
+   
+            sesion.setAttribute("r1", respuestas[0]);
+            sesion.setAttribute("r2", respuestas[1]);
+            sesion.setAttribute("r3", respuestas[2]);
      
-        
         %>
     </head>
     <body>
